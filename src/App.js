@@ -4,13 +4,13 @@ import { Todos } from './MyComponents/Todos'
 import { Footer } from './MyComponents/Footer'
 import { AddTodos } from './MyComponents/AddTodos';
 import React, { useState, useEffect } from 'react';
-import { About } from './MyComponents/About';
+// import { About } from './MyComponents/About';
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route
+// } from "react-router-dom";
 
 
 function App() {
@@ -50,24 +50,10 @@ function App() {
   }, [todos]);
   return (
     <>
-      <Router>
         <Header title="My Todos List" />
-        <Switch>
-          <Route exact path="/" render={() => {
-            return (
-              <>
-                <AddTodos addTodo={addTodo} />
-                <Todos todos={todos} onDelete={onDelete} />
-              </>
-            )
-          }}>
-          </Route>
-          <Route exact path="/about">
-            <About />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
+          <AddTodos addTodo={addTodo} />
+          <Todos todos={todos} onDelete={onDelete} />
+          <Footer />
     </>
   );
 }
